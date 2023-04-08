@@ -1,19 +1,26 @@
 body{
-
+    color:white;
     font-family: "Courier New", Courier, monospace;
-    margin: 20px;
-    padding: 10px 0px 10px 20px;
+    font-size: 18px;
+    font-weight: ;
+    margin: 0;
+    padding: 50px 50px 20px 50px;
     text-align:left;
     line-height: 1.5;
+    background-image:url('https://c4.wallpaperflare.com/wallpaper/822/208/26/futuristic-cube-artwork-lacza-wallpaper-preview.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-blend-mode: darken;
+    background-color: blueviolet;
     
-
 }
 
 /*  ovo sam ubacio kako bi poravnao input polja za Name, Email i Password*/
 [for= "name"], [for ="mail"], [for="pass"]{
 
     display: inline-block;
-    width: 100px;
+    width: 150px;
     text-align: 
 }
 
@@ -29,4 +36,39 @@ body{
 
     display: inline-block;
     width: 200px;
+}
+
+/* U ovom delu sam osencao polja za unos texta zelenom bojom */
+.pTop input, textarea{
+    
+    border-color: grey;
+    border-width: 3px;
+    box-shadow: 2px 2px green;
+    border-radius: 5px;
+}
+
+/*Ovde sam stilizovao dugme za SUBMIT I RESET*/
+[type='submit'], [type='reset']{
+    cursor: pointer;
+    border: solid;
+    border-radius: 5px;
+    border-color: grey;
+    border-width: 1px;
+    padding: 7px 20px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+
+}
+
+
+/* poravnao dugme za SUBMIT i RESET*/
+.submit{
+    text-align: center;
+}
+[type='submit']:hover{
+    background-color: red;
+}
+[type='reset']:hover{
+    background-color:red;
 }

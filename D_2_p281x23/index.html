@@ -11,7 +11,7 @@
     <form action="index.html" method="get">
         <fieldset>
             <legend>Login details</legend>
-                <p>
+                <p class="pTop">
                     <label for="name">Name : </label>
                     <input type="text" name="name" id="name" ><br>
                     <label for="mail">Email : </label>
@@ -20,6 +20,7 @@
                     <input type="password" name="pass" id="pass" ><br>
                 </p>
         </fieldset>
+    <div class="proba">
         <fieldset>
             <legend>Your feedback</legend>
                 <p>
@@ -45,24 +46,30 @@
                     <input type="radio" name="Dissatisfied" id="dis"><br>
                     <label for="vd">Very dissatisfied</label>
                     <input type="radio" name="Very_dissat" id="very_dis"><br>
-                    Further comments: <textarea name="par" id="par" cols="30" rows="5"></textarea>
+                    Further comments: <textarea name="par" id="par" cols="30" rows="4" max="30"></textarea>
                     </div>
                 </p>
 
         </fieldset>
-            <p>
+    </div>
+            <p class="pBottom">
                 Bio photo: 
-                <input type="file" name="file" id="file"> <br>
+                <input type="file" name="file" id="file" style="padding: 3px 10px; font-size: 15px;"> <br>
                 Location visited: 
                 <select name="location" id="location" value="Select location">
                     <option value="">Select locatnio</option>
                     <option value="bg">Beograd</option>
                     <option value="ns">Nis</option>
                     <option value="le">Leskovac</option>
+                        <optgroup label="Okrug">
+                            <option value="jb">Jablanicki</option>
+                            <option value="nis">Niski</option>
+                        </optgroup>
                 </select><br>
+                <p class="submit">
                 <input type="submit" name="submit" value="Submit"><br>
-                <input type="reset" name="reset" id="res" value="Reset">
-
+                <input type="reset" name="reset" id="res" value="Reset"><br>
+            </p>
             </p>
     </form>
 </body>
