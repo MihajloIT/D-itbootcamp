@@ -1,0 +1,74 @@
+
+body{
+    
+    color: black;
+    font-family:system-ui;
+    font-size:29px;
+    font-weight: 600;
+    background: url('https://media.gettyimages.com/id/494340550/vector/candy-drawing.jpg?s=2048x2048&w=gi&k=20&c=r6VBNmBPYnS-Mf3whh9lkG0BvskiImgf-K-tsFUnn34=');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-blend-mode: lighten;
+    background-color: grey;
+}
+.divTop{
+    text-align:center;
+    border-top: solid;
+    border-bottom:solid;
+    border-width: 3px;
+    border-color:red;
+    margin: 10px 3px 10px 4px;
+    padding:3px 0px 15px 10px;
+    
+ 
+}
+.divMeni{
+    border:solid;
+    border-width: 3px;
+    border-color: red;
+    border-radius: 20px;
+    padding: 10px 5px 2px 50px;
+    margin: 20px 15px;
+}
+.divBottom{
+    border-top: solid;
+    border-width:3px;
+    border-color: red;
+    margin: 25px;
+    padding: 10px 15px;
+
+}
+
+table{
+    margin:auto;
+    
+}
+
+img{
+    border:solid;
+    border-width:3px;
+    border-color:red;
+    width:300px;
+    height:200px;
+}
+
+/* direktni potomci diva */
+div>p{
+    color: green;
+}
+
+a:hover{
+    color: purple;
+}
+a:active{
+    color:yellow;
+}
+.button{
+    background-color:red;
+    border: 10px;
+    font-size: 30px;
+    margin: 4px 2px;
+    cursor: pointer;
+    
+}
