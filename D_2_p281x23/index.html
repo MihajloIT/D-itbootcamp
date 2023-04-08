@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domaci zadatak br 3</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <form action="index.html" method="get">
@@ -31,21 +32,38 @@
                     <input type="checkbox" name="happy" id="yes"><br>
                     <label for="amb">Ambivalent</label>
                     <input type="checkbox" name="amb" id="yes"><br>
+                </p>
+                <p class="divMid">
                     How satisfied were you with our service ? <br>
-                    <label for="sat">Very satisfied</label>
-                    <input type="radio" name="sat" id="very"><br>
-                    <label for="sad">Sad</label>
-                    <input type="radio" name="sat" id="satisfied"><br>
-                    <label for="happy">Happy</label>
-                    <input type="radio" name="sat" id="didn't_care"><br>
-                    <label for="amb">Ambivalent</label>
-                    <input type="radio" name="sat" id="dissatisfied"><br>
-                    <label for="amb">Ambivalent</label>
-                    <input type="radio" name="sat" id="very_dissatisfied"><br>
-                    Further comments: <textarea name="" id="" cols="30" rows="5"></textarea>
+                    <label for="vs">Very satisfied</label>
+                    <input type="radio" name="Very_sat" id="very"><br>
+                    <label for="sat">Satisfied</label>
+                    <input type="radio" name="Satisfied" id="yes"><br>
+                    <label for="dc">Didn't care</label>
+                    <input type="radio" name="Didn't_care" id="didn't"><br>
+                    <label for="dis">Dissatisfied</label>
+                    <input type="radio" name="Dissatisfied" id="dis"><br>
+                    <label for="vd">Very dissatisfied</label>
+                    <input type="radio" name="Very_dissat" id="very_dis"><br>
+                    Further comments: <textarea name="par" id="par" cols="30" rows="5"></textarea>
+                    </div>
                 </p>
 
         </fieldset>
+            <p>
+                Bio photo: 
+                <input type="file" name="file" id="file"> <br>
+                Location visited: 
+                <select name="location" id="location" value="Select location">
+                    <option value="">Select locatnio</option>
+                    <option value="bg">Beograd</option>
+                    <option value="ns">Nis</option>
+                    <option value="le">Leskovac</option>
+                </select><br>
+                <input type="submit" name="submit" value="Submit"><br>
+                <input type="reset" name="reset" id="res" value="Reset">
+
+            </p>
     </form>
 </body>
 </html>

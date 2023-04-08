@@ -1,0 +1,32 @@
+body{
+
+    font-family: "Courier New", Courier, monospace;
+    margin: 20px;
+    padding: 10px 0px 10px 20px;
+    text-align:left;
+    line-height: 1.5;
+    
+
+}
+
+/*  ovo sam ubacio kako bi poravnao input polja za Name, Email i Password*/
+[for= "name"], [for ="mail"], [for="pass"]{
+
+    display: inline-block;
+    width: 100px;
+    text-align: 
+}
+
+/* Poravnao sam radio button-e i checkbox na dva razlicita nacina, jedan preko pseudo klase drugi preko paragrafa */
+[for="angry"], [for="sad"], [for="happy"], [for="amb"]{
+
+    display: inline-block;
+    width: 200px;
+
+}
+
+.divMid label{
+
+    display: inline-block;
+    width: 200px;
+}
