@@ -2,7 +2,6 @@ body{
     color:white;
     font-family: "Courier New", Courier, monospace;
     font-size: 18px;
-    font-weight: ;
     margin: 0;
     padding: 50px 50px 20px 50px;
     text-align:left;
@@ -23,7 +22,7 @@ body{
 
     display: inline-block;
     width: 150px;
-    text-align: 
+    text-align: right;
 }
 
 /* Poravnao sam radio button-e i checkbox na dva razlicita nacina, jedan preko pseudo klase drugi preko paragrafa */
