@@ -22,7 +22,6 @@ body{
 
     display: inline-block;
     width: 150px;
-    text-align: right;
 }
 
 /* Poravnao sam radio button-e i checkbox na dva razlicita nacina, jedan preko pseudo klase drugi preko paragrafa */
