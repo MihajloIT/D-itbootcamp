@@ -13,7 +13,10 @@ body{
     background-size: cover;
     background-blend-mode: darken;
     background-color: blueviolet;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
 }
 
 /*  ovo sam ubacio kako bi poravnao input polja za Name, Email i Password*/
@@ -72,3 +75,4 @@ body{
 [type='reset']:hover{
     background-color:red;
 }
+
