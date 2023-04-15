@@ -1,0 +1,76 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    background-color:cornflowerblue
+}
+
+/* Fiksiran sadrzaj u gornjem delu */
+section{
+    position:fixed;
+    top:0;
+    width:100%;
+    
+}
+/* Postavljena visina i sirina da "aside" bude ispod section */
+section .top{
+    overflow: hidden;
+    width:100%;
+    height:425px;
+}
+/* Podesio divove sa slikama da budu horizontalno i napravio razmak izmedju nih tako da sadrzaj ostane isti i kad se smanji velicina browsera */
+section .top .slike{
+    float:left;
+    position:relative;
+    top:25px;
+    width:25%;
+    height: 400px;
+    margin:0 4%;
+    border: solid 2px blue;
+    text-align:center;
+    /*Ubacio scroll u divu ukoliko se smanji velicina browsera da ne utice na sadrzaj elemenata, a da moze i ceo sadrzaj da se vidi*/
+    overflow:auto;
+
+}
+
+/*Podesen sadrzaj p i h3 da budu relativni u odnosu na div 'slike' da sadrzaj ne bi izgubio kvalitet i strukturu*/
+.slike p{
+    position: absolute;
+    top: 85%;
+    bottom:15px;
+    left:50%;
+    transform: translateX(-50%);
+}
+.slike h3{
+    position:absolute;
+    top: 10px;
+    left:50%;
+    transform: translateX(-50%);
+}
+/*Pozicionirao sliku na sredinu diva*/
+.divImg{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60%;
+    width: 60%;
+    border: solid 2px blue;
+    
+}
+
+
+/*slika zauzima seo prostor diva 'divImg'*/
+img{
+    width:100%;
+    height:100%;
+}
+
+/* pozicioniran asside  */
+.row{
+    position:absolute;
+    top: 450px;
+    margin: 0 2%;
+}
