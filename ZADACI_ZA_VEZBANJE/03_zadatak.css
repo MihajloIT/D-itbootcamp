@@ -1,0 +1,19 @@
+
+div{
+    background-color: blue;
+}
+
+div > div{
+    background-color: green;
+}
+div > span{
+    background-color:yellow;
+}
+div ~ span{
+    background-color: grey;
+}
+div ~ div{
+    color: white;
+    background-color: red;
+}
+

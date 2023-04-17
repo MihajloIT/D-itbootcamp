@@ -1,0 +1,32 @@
+body{
+    background-color: #9F76B2;
+    color: eggplant;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    
+}
+
+h1{
+    color: #5D071C;
+    text-align:center;
+
+
+}
+span{
+    color:orange;
+}
+
+img{
+    width:400px;
+    height:300px;
+    border: dotted 7px #5D071C;
+}
+.narandzastiTekst{
+    color:orange;
+}
+#prviParagraf{
+    text-align:right;
+}
+.belaPozadina{
+    background-color:white;
+}

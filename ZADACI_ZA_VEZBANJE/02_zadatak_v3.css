@@ -1,0 +1,30 @@
+body{
+    background-color:grey;
+    border-style: double;
+    border-color: blue;
+    border-width: 6px;
+}
+h1{
+    color:green;
+    text-align:center;
+}
+img{
+    width:300px;
+    height:300px;
+    border: dotted 3px blue;
+    border-radius: 20px;
+    margin-left: 15px;
+}
+table tr td{
+    border: solid 1px blue;
+    padding: 7px 7px;
+}
+table{
+    margin-left: 15px;
+    border-collapse: collapse;
+}
+
+hr{
+    float: left;
+    margin-left: 130px;
+}
