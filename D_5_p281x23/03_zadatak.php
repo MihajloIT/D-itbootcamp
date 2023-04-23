@@ -1,8 +1,8 @@
 <?php
 
-    $p = 7000;
-    $m = 15000;
-    $k = 1000;
+    $p = 300;
+    $m = 500;
+    $k = 100;
 
     //ovo je realni kusur - kad se od upisanog kusura oduzme apsolutna vrednost razlike izmedju dve osobe, realni kusur se podeli sa 2 da se vidi kom je sta ostalo, ili ko sta duguje
     $kusur = ($k - abs($p-$m))/2;
