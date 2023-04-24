@@ -15,7 +15,7 @@ if($dan <6){
     }else{ echo "ne radimo";
     }
 }else{
-    if($sat >10 &&$sat<16){
+    if($sat >10 &&$sat<17){
         echo "radimo";
     }else{echo "ne radimo";
     }
@@ -24,8 +24,8 @@ echo "<hr>";
 //2. zadatak
 
 $brstanovnika = 10000;
-$testiranidan= 4040;
-$zarazenidan = 1010;
+$testiranidan= 3000;
+$zarazenidan = 901;
 $pozukup = ($zarazenidan/$brstanovnika);
 $dankrozsum = ($zarazenidan/$testiranidan);
 echo $pozukup . "<br>" . $dankrozsum . "<br>";
