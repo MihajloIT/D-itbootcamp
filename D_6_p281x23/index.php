@@ -4,21 +4,28 @@
 
 
 
-$dan = date("N");
-echo "$dan" . "<br>";
-$sat=date("H");
-echo $sat. "<br>";
+// $dan = date("N");
+// $sat=date("H");
+// $min = date("i");
+$dan= 7;
+$sat = 10;
+$min = 59;
+echo "<br>";
 
 if($dan <6){
-    if($sat>9 && $sat<20){
-        echo "radimo" . "<br>";
-    }else{ echo "ne radimo";
-    }
-}else{
-    if($sat >10 &&$sat<17){
-        echo "radimo";
-    }else{echo "ne radimo";
-    }
+    if($sat >= 9 && $min >= 0){
+        if($sat <= 19 && $min <= 59){
+            echo "SAD RADIMO";
+        }else{ echo "SAD NE RADIMO";}
+    }else{ echo "SAD NE RADIMO";}
+
+}
+else{
+    if($sat >= 10 && $min >= 0){
+        if($sat <= 17 && $min <= 59){
+            echo "SAD RADIMO";
+        }else{ echo "SAD NE RADIMO";}
+    }else{ echo "SAD NE RADIMO";}
 }
 echo "<hr>";
 //2. zadatak
@@ -28,7 +35,6 @@ $testiranidan= 3000;
 $zarazenidan = 901;
 $pozukup = ($zarazenidan/$brstanovnika);
 $dankrozsum = ($zarazenidan/$testiranidan);
-echo $pozukup . "<br>" . $dankrozsum . "<br>";
 ?>
 
 <!DOCTYPE html>

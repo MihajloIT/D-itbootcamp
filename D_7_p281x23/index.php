@@ -4,20 +4,17 @@
 
 echo "<hr>";
 
-$i = $n = 23; 
+$n = $i = 555;
 $sum = 0;
-while($i > 0.09){
-    $broj1 = $i;
-    $broj2 = floor($i);
-    $i = floor($i);
-    $decimale = abs($broj1-$broj2);
-    $sum += $decimale;
+while($i >= 1){
+    $str = (string)$i;
+    $result = (int)$str[-1];
+    $sum += $result;
 
-    
-    $i = $i/10;
+    $i = floor($i/10); // uslov pomocu kog izbacujem zadnji broj i zaokruzujem vrednost
 }
 
-$sum = $sum * 10;
+
 if($sum == $n ){
 
     echo "<p style='border: solid orange 2px'>Zbir cifara broja $n je : $sum </p>";
