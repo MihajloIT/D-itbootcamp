@@ -1,0 +1,36 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    background-color: grey;
+    width: 100%;
+}
+
+table{
+    border-collapse: collapse;
+    width: 50%;
+    
+}
+tr{
+    width: 100%;
+}
+td{
+    border: 2px solid;
+    height: 300px;
+    width: 50%;
+    
+    
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.parni:hover{
+    border: solid 3px blue;
+    opacity: 0.5;
+}
+.neparni:hover{
+    border: solid 3px red;
+    opacity: 0.5;
+
+}
