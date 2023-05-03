@@ -49,7 +49,7 @@ $m = 11;
 $sum = 0;
 while($i<= $m){
     if($i%2 != 0){
-        $sum += $i**2;
+        $sum += $i**3;
     }
     
     $i++;
@@ -63,7 +63,7 @@ $m = 11;
 $sum = 0;
 for($i=$n;$i<= $m;$i++){
     if($i%2 != 0){
-        $sum += $i**2;
+        $sum += $i**3;
     }
 }
 echo "Suma kubova neparnih brojeva od $n do $m je : $sum";
