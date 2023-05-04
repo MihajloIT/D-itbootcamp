@@ -22,6 +22,22 @@ if($sum == $n ){
 
 echo "<hr>";
 
+
+////////// DRUGI NACIN 1. ZADATKA 
+
+$n = 5166;
+$sum = 0;
+// ubacujem abs($n) ako broj bude negativan
+for($i=abs($n) ; $i >=1 ; $i=$i/10){
+    $zadnja_cifra = $i%10;
+    $sum += $zadnja_cifra;
+    
+}
+if($sum == abs($n)){
+    echo "Zbir cifara broja $n je : <strong style='border: dotted 2px orange'>$sum</strong>";
+}else{ echo "Zbir cifara broja $n je : <strong style='border: dotted 2px blue'>$sum</strong>";}
+echo "<hr>";
+
 // Zadatak br 2 :
 
 $broj = 21;
