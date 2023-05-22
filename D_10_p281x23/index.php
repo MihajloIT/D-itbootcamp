@@ -19,7 +19,8 @@ class tekuciRacun
         }        
     }
     public function setStanje($st)
-    {        
+    {      
+        $st = round($st,2);  
         $this -> Stanje = $st;
     }
     public function setKurs()
@@ -31,9 +32,9 @@ class tekuciRacun
         {
             $kurs = $data->rates->RSD;
             $kurs = round($kurs,4);
-            return $this->Kurs = $kurs;
+            $this->Kurs = $kurs;
         }else{
-            return 'Nije moguce dobiti kurs';
+            echo '<p>Nije moguce dobiti kurs</p>';
         }
     }
     ////////// END SETERI  /////////
@@ -124,11 +125,11 @@ $tr1 -> setStanje(0.67765);
 
 $tr2 = new tekuciRacun();
 $tr2 -> setBrojRacuna("122244445555666612");  
-$tr2 -> setStanje(225.45); 
+$tr2 -> setStanje(225.45345345); 
 
 $tr3 = new tekuciRacun();
 $tr3 -> setBrojRacuna("123456788765432112");        
-$tr3 -> setStanje(-1000); 
+$tr3 -> setStanje(-1000.000011212); 
 
 //// ispitivanje racuna tr1
    echo "<h3>Racun broj 1</h3>";
