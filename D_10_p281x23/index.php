@@ -25,6 +25,7 @@ class tekuciRacun
     }
     public function setKurs($kurs)
     {   
+        $kurs = round($kurs, 4);
         $this -> Kurs = $kurs;
     }
     ////////// END SETERI  /////////
@@ -47,6 +48,7 @@ class tekuciRacun
 
     function uplati($iznos,$valuta)
     {        
+        $iznos = round($iznos,2);
         if($iznos >=0){
             if($valuta === "RSD")
             {
@@ -70,7 +72,8 @@ class tekuciRacun
     }
 
     function isplata($iznos,$valuta)
-    {        
+    {     
+        $iznos = round($iznos,2);   
         if($iznos < 0)
         {
             echo "<p>Vrednost ne moze biti negativna</p>";
@@ -79,6 +82,7 @@ class tekuciRacun
         if($valuta === "RSD"){
             if(($this->getStanje()-$iznos)>=0)
             {
+                $this->setStanje(($this->getStanje())-$iznos);
                 return true;
             }            
             else
@@ -90,6 +94,7 @@ class tekuciRacun
         {
             if($this->getStanje() - ($iznos * $this->getKurs())>=0)
             {
+                $this->setStanje(($this->getStanje())-($iznos * $this->getKurs()));
                 return true;
             }
             else
@@ -113,7 +118,7 @@ class tekuciRacun
 
 $tr1 = new tekuciRacun();
 $tr1 -> setBrojRacuna("223444456565777713");    
-$tr1 -> setStanje(0.67765); 
+$tr1 -> setStanje(117.3); 
 $tr1 -> setKurs(117.3);   
 
 $tr2 = new tekuciRacun();
@@ -129,8 +134,8 @@ $tr3 -> setKurs(117.3);
 //// ispitivanje racuna tr1
    echo "<h3>Racun broj 1</h3>";
 echo $tr1->getStanje(); // pocetno stanje
-$tr1->uplati(560,"RSD"); // prva promena na racunu tr1
-if($tr1->isplata(100,"RSD"))
+$tr1->uplati(0,"EUR"); // prva promena na racunu tr1
+if($tr1->isplata(1,"EUR"))
 {
     echo "TRUE";
 }
@@ -138,7 +143,12 @@ else
 {
     echo "FALSE";
 }
+echo "<br>";
+echo $tr1->getStanje();
 echo "<hr>";
+
+
+
 /// ispitivanje racuna tr2
 echo "<h3>Racun broj 2</h3>";
 echo $tr2->getStanje(); // pocetno stanje
@@ -152,6 +162,9 @@ else
     echo "FALSE";
 }
 echo "<hr>";
+
+
+
 /// ispitivanje racuna tr3
 echo "<h3>Racun broj 3</h3>";
 echo $tr3->getStanje(); // pocetno stanje
