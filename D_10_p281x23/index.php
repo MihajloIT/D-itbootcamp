@@ -23,19 +23,9 @@ class tekuciRacun
         $st = round($st,2);  
         $this -> Stanje = $st;
     }
-    public function setKurs()
+    public function setKurs($kurs)
     {   
-        $url = 'https://api.exchangerate-api.com/v4/latest/EUR';
-        $connect = file_get_contents($url);
-        $data = json_decode($connect);
-        if($data && isset($data->rates)&&isset($data->rates->RSD))
-        {
-            $kurs = $data->rates->RSD;
-            $kurs = round($kurs,4);
-            $this->Kurs = $kurs;
-        }else{
-            echo '<p>Nije moguce dobiti kurs</p>';
-        }
+        $this -> Kurs = $kurs;
     }
     ////////// END SETERI  /////////
 
@@ -49,11 +39,14 @@ class tekuciRacun
         return round($this -> Stanje,2);
                
     }
+    public function getKurs()
+    {   
+        return $this ->Kurs;
+    }
     //////// END GETERI   ////////////////
 
     function uplati($iznos,$valuta)
-    {
-        $kurs_na_danasnji_dan = $this->setKurs();
+    {        
         if($iznos >=0){
             if($valuta === "RSD")
             {
@@ -62,7 +55,7 @@ class tekuciRacun
             }
             elseif($valuta === "EUR")
             {
-                $this->Stanje = $this->getStanje() + ($iznos*$kurs_na_danasnji_dan);
+                $this->Stanje = $this->getStanje() + ($iznos*$this -> getKurs());
                 $this->stanje();              
             }
             else
@@ -77,8 +70,7 @@ class tekuciRacun
     }
 
     function isplata($iznos,$valuta)
-    {
-        $kurs_na_danasnji_dan = $this->setKurs();
+    {        
         if($iznos < 0)
         {
             echo "<p>Vrednost ne moze biti negativna</p>";
@@ -96,7 +88,7 @@ class tekuciRacun
         }
         elseif($valuta === "EUR")
         {
-            if($this->getStanje() - ($iznos*$kurs_na_danasnji_dan)>=0)
+            if($this->getStanje() - ($iznos * $this->getKurs())>=0)
             {
                 return true;
             }
@@ -121,15 +113,18 @@ class tekuciRacun
 
 $tr1 = new tekuciRacun();
 $tr1 -> setBrojRacuna("223444456565777713");    
-$tr1 -> setStanje(0.67765);    
+$tr1 -> setStanje(0.67765); 
+$tr1 -> setKurs(117.3);   
 
 $tr2 = new tekuciRacun();
 $tr2 -> setBrojRacuna("122244445555666612");  
 $tr2 -> setStanje(225.45345345); 
+$tr2 -> setKurs(117.3);  
 
 $tr3 = new tekuciRacun();
 $tr3 -> setBrojRacuna("123456788765432112");        
 $tr3 -> setStanje(-1000.000011212); 
+$tr3 -> setKurs(117.3);  
 
 //// ispitivanje racuna tr1
    echo "<h3>Racun broj 1</h3>";
