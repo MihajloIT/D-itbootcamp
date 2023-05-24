@@ -48,16 +48,18 @@ class tekuciRacun
 
     function uplati($iznos,$valuta)
     {        
-        $iznos = round($iznos,2);
+              
         if($iznos >=0){
             if($valuta === "RSD")
             {
-                $this->Stanje = $this->getStanje() + $iznos;
+                $this-> setStanje($this->getStanje()+$iznos);
+                // $this->Stanje = $this->getStanje() + $iznos;<-- greska jer rezultat ne prolazi kroz uslove koji su u seteru
                 $this->stanje();              
             }
             elseif($valuta === "EUR")
             {
-                $this->Stanje = $this->getStanje() + ($iznos*$this -> getKurs());
+                $this->setStanje(($this ->getStanje())+ ($iznos * $this -> getKurs()));
+                // $this->Stanje = $this->getStanje() + ($iznos*$this -> getKurs()); <-- greska jer rezultat ne prolazi kroz uslove koji su u seteru
                 $this->stanje();              
             }
             else
@@ -73,7 +75,7 @@ class tekuciRacun
 
     function isplata($iznos,$valuta)
     {     
-        $iznos = round($iznos,2);   
+        // $iznos = round($iznos,2);   
         if($iznos < 0)
         {
             echo "<p>Vrednost ne moze biti negativna</p>";
@@ -118,8 +120,8 @@ class tekuciRacun
 
 $tr1 = new tekuciRacun();
 $tr1 -> setBrojRacuna("223444456565777713");    
-$tr1 -> setStanje(117.3); 
-$tr1 -> setKurs(117.3);   
+$tr1 -> setStanje(0); 
+$tr1 -> setKurs(117.1299);   
 
 $tr2 = new tekuciRacun();
 $tr2 -> setBrojRacuna("122244445555666612");  
@@ -133,9 +135,9 @@ $tr3 -> setKurs(117.3);
 
 //// ispitivanje racuna tr1
    echo "<h3>Racun broj 1</h3>";
-echo $tr1->getStanje(); // pocetno stanje
-$tr1->uplati(0,"EUR"); // prva promena na racunu tr1
-if($tr1->isplata(1,"EUR"))
+echo "Pocetno stanje : " .$tr1->getStanje(); // pocetno stanje
+$tr1->uplati(1.1199,"EUR"); // prva promena na racunu tr1
+if($tr1->isplata(0,"EUR"))
 {
     echo "TRUE";
 }
@@ -144,41 +146,41 @@ else
     echo "FALSE";
 }
 echo "<br>";
-echo $tr1->getStanje();
+echo "Stanje posle promene : " .$tr1->getStanje();
 echo "<hr>";
 
 
 
 /// ispitivanje racuna tr2
-echo "<h3>Racun broj 2</h3>";
-echo $tr2->getStanje(); // pocetno stanje
-$tr2->uplati(-10000,"RSD"); // prva promena na racunu tr1
-if($tr2->isplata(100,"RSD"))
-{
-    echo "TRUE";
-}
-else
-{
-    echo "FALSE";
-}
-echo "<hr>";
+// echo "<h3>Racun broj 2</h3>";
+// echo $tr2->getStanje(); // pocetno stanje
+// $tr2->uplati(-10000,"RSD"); // prva promena na racunu tr1
+// if($tr2->isplata(100,"RSD"))
+// {
+//     echo "TRUE";
+// }
+// else
+// {
+//     echo "FALSE";
+// }
+// echo "<hr>";
 
 
 
 /// ispitivanje racuna tr3
-echo "<h3>Racun broj 3</h3>";
-echo $tr3->getStanje(); // pocetno stanje
-$tr3->uplati(560,"EUR"); // prva promena na racunu tr1
-$tr3->uplati(560,"HR"); // pokusaj uplate u KUNAMA
-if($tr3->isplata(100000,"RSD"))
-{
-    echo "TRUE";
-}
-else
-{
-    echo "FALSE";
-}
-echo "<hr>";
+// echo "<h3>Racun broj 3</h3>";
+// echo $tr3->getStanje(); // pocetno stanje
+// $tr3->uplati(560,"EUR"); // prva promena na racunu tr1
+// $tr3->uplati(560,"HR"); // pokusaj uplate u KUNAMA
+// if($tr3->isplata(100000,"RSD"))
+// {
+//     echo "TRUE";
+// }
+// else
+// {
+//     echo "FALSE";
+// }
+// echo "<hr>";
 
 
 // testiranje isplate, status : sve radi !
