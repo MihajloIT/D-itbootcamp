@@ -36,18 +36,19 @@ class Autobus
     }   
 
 }
-$busevi = array
-(
-    ['rgbroj'=>'NS123CC','brsedista'=>78],
-    ['rgbroj'=>'KG321BD','brsedista'=>34],
-    ['rgbroj'=>'VL888TE','brsedista'=>155]
-);
+
+$b1 = new Autobus("NS123CC","178");
+$b2 = new Autobus("KG321BD","35");
+$b3 = new Autobus("VL888TE","155");
+
+$busevi = [$b1,$b2,$b3];
+
 function ukupnoSedista($niz)
     {
         $sum_br_sed = 0;
         for($i=0;$i<count($niz);$i++)
         {
-            $sum_br_sed += $niz[$i]['brsedista'];
+            $sum_br_sed += $niz[$i]->getBrSedista();
         }
         return $sum_br_sed;
     }
@@ -57,13 +58,13 @@ function maksSedista($niz)
     $kljuc = 0;
     for($i=0;$i<count($niz);$i++)
     {
-        if($niz[$i]['brsedista'] > $max)
+        if($niz[$i]->getBrSedista() > $max)
         {
-            $max = $niz[$i]['brsedista'];
+            $max = $niz[$i]->getBrSedista();
             $kljuc = $i;
         }        
     }
-    echo "<p>Max sedista ima autobus ". $niz[$kljuc]['rgbroj']." koji ima $max sedista.</p>";
+    echo "<p>Max sedista ima autobus ". $niz[$kljuc]->getRgBroj()." koji ima $max sedista.</p>";
 }
 
 
@@ -82,7 +83,7 @@ function ljudi($niz,$brljudi)
 
 
 
-if(ljudi($busevi,1112))
+if(ljudi($busevi,368))
 {
     echo "<p>Ima mesta za sve</p>";
 }else
@@ -97,7 +98,7 @@ echo "Ukupan broj sedista je : ". ukupnoSedista($busevi);
 $proba = new Autobus("VB123LL",'133');
 $proba -> podaciAutobusa();
 
-
+maksSedista($busevi);
 
 
 
