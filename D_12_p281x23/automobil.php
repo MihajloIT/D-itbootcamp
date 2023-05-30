@@ -1,6 +1,6 @@
 <?php
-require_once "dizelauto.php";
-require_once "benzinauto.php";
+// require_once "dizelauto.php";
+// require_once "benzinauto.php";
 
 class Automobil
 {
@@ -100,36 +100,32 @@ function maksUlozeno($niz)
 
 function boljiTip($niz)
 {
-    $min_potrosnja = 10000;
-    $cuvar = 0;
-    foreach($niz as $key => $value)
+    $sum_dizel = 0;
+    $sum_benzin = 0;
+    $brojac_dizel = 0;
+    $brojac_benzin = 0;
+    foreach($niz as $value)
     {
-       
-        if(isset($value->cenaBenzina)){
-            if($value->getPotrosnja()*$value->getCenaBenzina() < $min_potrosnja)
-            {
-                $min_potrosnja = $value->getPotrosnja()*$value->getCenaBenzina();
-                $cuvar = $key; 
-                              
-            }
-        }else
-        {
-            if($value->getPotrosnja()*$value->getCenaDizela() < $min_potrosnja)
-            {
-                $min_potrosnja = $value->getPotrosnja()*$value->getCenaDizela();
-                $cuvar = $key;
-            }
-        }        
+       if($value->getTipGoriva() == "DIZEL")
+       {
+        $sum_dizel += $value->ulozenoPara();
+        $brojac_dizel++;
+       }
+       elseif($value->getTipGoriva() == "BENZIN")
+       {
+        $sum_benzin += $value -> ulozenoPara();
+        $brojac_benzin++;
+       }
+              
     }
-    return $niz[$cuvar];
+    $pr_dizel = $sum_dizel / $brojac_dizel;
+    $pr_benzin = $sum_benzin/$brojac_benzin;
+
+    return ($pr_dizel < $pr_benzin)? "DIZEL" : "BENZIN";
+    
 }
 
-maksUlozeno($benzinciidizeli);
 
-echo "<hr>";
-echo "Auto sa najmanjom potrosnjom/cena je : "  ;
-echo boljiTip($benzinciidizeli)->ispis();
-echo "<hr>";
 
 
 
