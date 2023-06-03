@@ -56,13 +56,11 @@ echo "<p>Prosecna skolarina je : ". prosecnaSkolarina($studenti)."</p>";
 function prosecnoSkolarinaESPB($niz)
 {
     $sum = 0;
-    $sum_espb = 0;
     foreach($niz as $value)
     {
-        $sum += $value -> skolarina();
-        $sum_espb += $value -> getosvojeniESPB();
+        $sum += $value -> skolarina()/$value->getosvojeniESPB();
     }
-    $rez = round($sum / $sum_espb , 2);
+    $rez = round($sum / count($niz),2);
     return $rez;
 }
 echo "<p>Prosecna odnos skolarine i ESPB je : ". prosecnoSkolarinaESPB($studenti)."</p>";
@@ -98,5 +96,32 @@ foreach($studenti as $student)
 {
     echo "<p>Prijava ispita za {$student->getIme()} je ". $student->cenaPrijaveIspita()."</p>";
 }
+
+echo "<hr>"; // Ispravka domaceg
+
+$provera = new SamofinansirajuciStudent("Zoran",265,8,35);
+
+echo $provera -> getprijavljeniESPB();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
