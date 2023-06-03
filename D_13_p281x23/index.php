@@ -58,7 +58,11 @@ function prosecnoSkolarinaESPB($niz)
     $sum = 0;
     foreach($niz as $value)
     {
-        $sum += $value -> skolarina()/$value->getosvojeniESPB();
+        if($value->getosvojeniESPB() !== 0)
+        {
+            $sum += $value -> skolarina()/$value->getosvojeniESPB();
+        }
+        
     }
     $rez = round($sum / count($niz),2);
     return $rez;
