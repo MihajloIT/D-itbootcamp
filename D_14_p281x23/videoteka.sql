@@ -17,17 +17,17 @@ INSERT INTO `filmovi`
 VALUE 
 (1, "Gospodar Prestena", "Tolkin", 2003, "drama", 9.5),
 (2, "Hari Poter", "Peter", 2008, "drama", 8.8),
-(3, "Gospodin i gospodja Smith", "Zika", 2012, "komedija", 7.7),
+(3, "Gospodin i gospodja Smith", "Žika", 2012, "komedija", 7.7),
 (4, "Titanik", "Toma", 1998, "tragedija", 10),
-(5, "Spasavanje vojnika Rajena", "Stive", 1988, "tragedija", 6.5),
-(6, "Trula cula", "Jovan", 2003, "komedija", 10),
+(5, "Spašavanje vojnika Rajena", "Stive", 1988, "tragedija", 6.5),
+(6, "Trula čula", "Jovan", 2003, "komedija", 10),
 (7, "Saw", "N N", 2003, "horor", 7.5),
 (8, "Limitless", "Zoran", 2010, "psiho", 4.8),
 (9, "Interstellar", "Christoplher Nolan", 2014, "komedija", 10),
-(10, "Zikina Dinastija", "Tolkin", 2003, "komedija", 3.5),
+(10, "Žikina Dinastija", "Tolkin", 2003, "komedija", 3.5),
 (11, "Hangover", "Jovan", 2003, "triler", 2.4),
 (12, "Varljivo leto", "Toma", 1988, "naucna fantastika", 10),
-(13, "Radovan treci", "Jovan", 1983, "komedija", 10),
+(13, "Radovan treći", "Jovan", 1983, "komedija", 10),
 (14, "Rob Roj", "Sterija", 1999, "akcija", 10),
 (15, "Sky", "George", 1989, "tragedija", 4.8);
 
