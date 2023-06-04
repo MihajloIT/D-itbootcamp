@@ -58,7 +58,8 @@ WHERE `zanr` != 'komedija';
 --Prikazati sve informacije o najbojle rangiranom filmu
 SELECT *
 FROM `filmovi`
-WHERE `ocena` = (SELECT MAX(`ocena`) FROM `filmovi`);
+WHERE `ocena` = (SELECT MAX(`ocena`) FROM `filmovi`)
+LIMIT 1;
 
 --Prikazati sve informacije o najbolje rangiranoj drami.
 SELECT *
