@@ -1,4 +1,4 @@
-CREATE DATABASE `videoteka`;
+CREATE DATABASE `videoteka` CHARACTER SET utf16 COLLATE utf16_slovenian_ci;
 
 CREATE TABLE `filmovi`
 (
