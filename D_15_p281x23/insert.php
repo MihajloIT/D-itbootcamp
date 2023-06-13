@@ -47,9 +47,9 @@ $upit_insert[] =
     (1,'Varljivo leto',1968,10,1),
     (2,'Mrak film',2003,5.5,2),
     (3,'Farma',2011,3,4),
-    (4,'Otpisani',1976,8.9,3),
-    (5,'Sutjeska',1950,6.7,2),
-    (6,'Dobar los zao',1962,9.1,4),
+    (4,'Otpisani',2011,8.9,3),
+    (5,'Sutjeska',2003,6.7,2),
+    (6,'Dobar los zao',2011,9.1,4),
     (7,'Tamo daleko',1968,7.7,1);
 
     ",

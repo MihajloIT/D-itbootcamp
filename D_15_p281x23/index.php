@@ -88,14 +88,15 @@ require_once "connection.php";
              ?>
             <table>
                 <tr>
+                    <td style="text-align:center;" colspan='3'><?php echo $value['godina'] ?></td>
+                </tr>
+                <tr>
                     <td>Naslov</td>
-                    <td>Godina</td>
                     <td>Ocena</td>
                     <td>Reziser</td>
                 </tr>
                 <tr>
                     <td><?php echo $value['naslov'] ?></td>
-                    <td><?php echo $value['godina'] ?></td>
                     <td><?php echo $value['ocena'] ?></td>
                     <td><?php echo $value['ime'] ?></td>
                 </tr>
@@ -105,7 +106,6 @@ require_once "connection.php";
             <?php } else {    ?>
                 <tr>
                     <td><?php echo $value['naslov'] ?></td>
-                    <td><?php echo $value['godina'] ?></td>
                     <td><?php echo $value['ocena'] ?></td>
                     <td><?php echo $value['ime'] ?></td>
 
