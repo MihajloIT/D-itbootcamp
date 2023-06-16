@@ -1,0 +1,120 @@
+*{
+    box-sizing: border-box;
+    margin : 0;
+    padding: 0;
+}
+
+
+body.index
+{
+    background-color: #333D51     ;
+    color: #D3AC2B ;
+    margin: 0;
+    padding: 0;
+}
+
+a 
+{
+    color: #D3AC2B;
+}
+a:hover
+{
+    color: #d9ba85;
+}
+.error
+{
+    color: red;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: "Playfair Display", serif;
+}
+
+/*--------           HEADER           ----------*/
+header
+{
+    background: url("../img/business.jpg") top center;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+    width: 100%;
+    height : 70vh;
+    padding: 0;
+}
+header:before{
+    content: "";
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar
+{
+    overflow: hidden;    
+    height: 52px;
+}
+.navbar ul
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items:center;
+    list-style: none;
+    content: "";
+    background: rgba(0, 0, 0, 0.5);
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.navbar li
+{
+    position: relative;
+}
+.navbar a,
+.navbar a:focus
+{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0 15px 30px;
+    color: #D3AC2B;
+    white-space: nowrap;
+    font-size : 20px;    
+    text-decoration: none;
+}
+
+.navbar a:hover,
+.navbar a:active
+{
+    color: #d9ba85;
+}
+
+
+
+
+.registered p
+{
+   font-size: 8px ;
+   margin : 1px;
+}
+
+.top-div h1
+{
+    text-align: center;
+}
+
+.top-div p
+{
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+section {
+    padding: 60px 0;
+    overflow: hidden;
+  }
