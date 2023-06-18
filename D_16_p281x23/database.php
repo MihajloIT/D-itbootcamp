@@ -25,6 +25,20 @@ $sql .= " CREATE TABLE IF NOT EXISTS `profiles`
 
         )ENGINE = innodb;";
 
+$sql .= "CREATE TABLE IF NOT EXISTS `followers` 
+          (
+            `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+            `id_sender` INT UNSIGNED NOT NULL,
+            `id_receiver` INT UNSIGNED NOT NULL,
+            PRIMARY KEY(`id`),
+            FOREIGN KEY(`id_sender`)
+            REFERENCES `users`(`id`)
+            ON DELETE NO ACTION ON UPDATE CASCADE,
+            FOREIGN KEY (`id_receiver`)
+            REFERENCES `users`(`id`)
+            ON UPDATE CASCADE ON DELETE NO ACTION 
+          )ENGINE = INNODB;";
+
 
 if($connection -> multi_query($sql))
 {

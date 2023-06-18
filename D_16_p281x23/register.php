@@ -77,15 +77,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
 </head>
 
-<body>
-    <h1>Register to our hise</h1>
+<body class="register-body">
+<a href="index.php">
+            <h1>Stratton Oakmont</h1>
+        </a>
+<div class="row">
+<div class="col-6">
+            <picture class="register-pic">
+                <img src="img/business3.jpg" alt="">
+            </picture>
+        </div>
+    <div class="register col-6">
+        <div class="register-form">
+    <h1>Register here</h1>
     <form action="#" method="POST">
     <p>
         <label for="username">Username : </label>
@@ -103,8 +113,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         <span class="error">* <?php echo $retypeError; ?></span>
         
     </p>
-    <input type="submit" value="Register me!">
+    <input id="button" type="submit" value="Register me!">
     </form>
+    </div>
+    </div>
+    
+    </div>
 
 
 

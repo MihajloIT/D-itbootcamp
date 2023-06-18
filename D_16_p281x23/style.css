@@ -1,0 +1,450 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body 
+{
+    font-family: "Open Sans", sans-serif;
+}
+
+
+header {
+
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    height: 85px;
+    position: fixed;
+    top: 25px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+header ul {
+    background-color: #354649 ;
+
+}
+
+header ul li {
+    display: inline-block;
+    margin: 15px;
+    font-size: 22px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+header ul li a {
+    color: #D3AC2B ;
+    text-decoration: none;
+}
+
+
+section {
+    background: url('img/business.jpg');
+    filter: brightness(70%);
+    background-size: cover;
+    position: relative;
+    top: 0;
+    padding-top: 125px;
+    background-attachment: fixed;
+}
+section .row
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .row h1
+{
+    text-align: center;
+    padding-bottom: 25px;
+    color: #D3AC2B   ;
+    fill-opacity: 200%;
+    font-size: 45px;
+}
+
+section .row p
+{
+    color: #D3AC2B;
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+section img {
+    width: 80%;
+    height: 80%;
+
+
+}
+
+.intro {
+    float: left;
+}
+
+.about
+{
+    color: #D3AC2B ;
+    background-color: #6C7A89   ;
+}
+.about h2
+{
+    padding: 25px;
+    text-align:center;
+}
+.about p
+{
+    font-size: 20px;    
+    font-weight: 600;
+    padding: 10px 30px 30px 30px;
+}
+.support
+{
+    
+    background-color: #354649  ;
+    color: #D3AC2B ;
+    filter: brightness(75%);
+    background-size: cover;
+    position:relative;
+    overflow: hidden;
+
+}
+.div-sup
+{
+    float:left;
+    display: inline-block;
+}
+.support h2
+{
+    padding: 25px;
+    text-align:center;
+}
+.support ol
+{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 30px 30px 60px;
+}
+.support ol li ul
+{
+    padding: 10px 30px 30px 60px;
+}
+
+#div-sup picture
+{
+  
+    
+    border-radius: 25px;
+}
+
+#steps-pic img
+{
+    width : 90%;
+    height: 90%;
+    border: 1.5px #D3AC2B  solid;
+    border-radius: 25px;
+}
+
+footer
+{
+    background-color: #433E49 ;
+    color: #D3AC2B ;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 25px;
+
+}
+
+/*---------- Log In----------------*/
+
+.login-body{
+    background-color: #433E49 ;
+    color: #D3AC2B ;
+    margin-top: 40px;
+    margin-left: 15px;
+}
+
+.login-body h1
+{
+    color: #D3AC2B ;
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 35px;
+}
+
+.login-body h2
+{
+    padding-top: 20px;
+    color: #D3AC2B ;
+}
+.login-body a
+{
+    text-decoration: none;
+}
+.login
+{
+    text-align: left;    
+    border: solid 2px #6C7A89;
+    border-radius: 20px;
+}
+.form
+{
+    margin-left: 100px;
+}
+
+#login-pic
+{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-pic img
+{
+    width: 80%;
+    border: solid 2px #6C7A89;
+    border-radius: 20px;    
+
+}
+.form label
+{
+    display: block;
+}
+
+
+/*------- Registration ------------*/
+
+.register-body{
+    background-color: #433E49 ;
+    color: #D3AC2B ;
+    margin-top: 40px;
+    margin-left: 15px;
+}
+
+.register-body a
+{
+    text-decoration: none;
+    color: #D3AC2B ;
+}
+.register-body h1
+{
+    text-align: center;
+    margin-bottom: 40px;
+    color: #D3AC2B ;
+}
+
+.register-pic
+{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-pic img
+{
+    width: 80%;
+    border: solid 2px #6C7A89;
+    border-radius: 20px;    
+
+}
+
+.register
+{
+    align-items: left;   
+    border: solid 2px #6C7A89;
+    border-radius: 20px;
+    padding-top: 25px;
+}
+
+.register-form
+{
+    padding-left: 35px;
+}
+
+.register-form label
+{
+    display: block;
+}
+
+
+/*------- Create Profile -----------*/
+
+.profile-body
+{
+    background-color: #433E49 ;
+    color: #D3AC2B ;
+    margin-top: 40px;
+    padding-top: 65px;
+}
+
+.profile input
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.profile fieldset
+{
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+ [for= "username"], [for="lastname"]
+{
+    display: inline-block;
+    width: 150px;
+}
+
+[for="radio"]
+{
+    display: inline-block;
+    width: 150px;
+}
+.profile-div
+{
+    float: left;
+}
+#profile-pic
+{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-pic img
+{
+    width: 80%;
+}
+
+.profile
+{
+    margin: 80px 50px; 
+}
+
+
+#button {
+    position: relative;
+    background-color: #6C7A89 ;
+    border: none;
+    border-radius: 15px;
+    font-size: 28px;
+    color: #F6C026 ;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  #button:after {
+    content: "";
+    background: #DBC1AD;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  
+  #button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+/*-------- Follower ---------*/
+
+.follower-body
+{
+    background-color: #433E49 ;
+    color: #D3AC2B ;
+    margin-top: 40px;
+    padding-top: 65px;
+}
+
+.follower-body table
+{
+    border-collapse: collapse;
+}
+
+.follower-body table td, th
+{
+    border:solid 2px #6C7A89;
+    padding: 10px;
+}
+
+.follower-body a
+{
+    text-decoration: none;
+    color: #D3AC2B ;
+}
+.follow-div
+{
+    float: left;
+}
+
+
+
+.row {
+    width: 100%;
+    display: inline-block;
+}
+
+.col-1 {
+    width: calc(100%(1/12));
+}
+
+.col-2 {
+    width: calc(100%(2/12));
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: calc(100%(4/12));
+}
+
+.col-5 {
+    width: calc(100%(5/12));
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: calc(100%(7/12));
+}
+
+.col-8 {
+    width: calc(100%(8/12));
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: calc(100%(10/12));
+}
+
+.col-11 {
+    width: calc(100%(11/12));
+}
+
+.col-12 {
+    width: 100%;
+}

@@ -62,20 +62,21 @@ function nameValidation($n)
     {
         return "Name cannot contain more than 50 characters ";
     }
-    elseif(ctype_digit($n) == false || preg_match('/[ŠšĆćČčŽžŠš]/m', $n) == false)
-    {
-        return "Name must contain only letters ";
-    }
     else
     {
-        echo "Ne radi ti nesto profo";
+        return "";
     }
+    // elseif(ctype_digit($n) == false || preg_match('/[a-zA-ZŠšĆćČčŽžŠš]/m', $n) == false)
+    // {
+    //     return "Name must contain only letters ";
+    // } ovo je lose postavio
+   
 
 }   
 
 function genderValidation($g)
 {
-    if($g != "m" && $g != 'z' && $g != '0')
+    if($g != "m" && $g != 'z' && $g != 'o')
     {
         return "Unknow gender";
     }
@@ -97,7 +98,20 @@ function dobValidation($d)
     }
 }
 
-
+function profileExists($id, $conn)
+{
+    $q = "SELECT * FROM `profiles` WHERE `id_user` = $id";
+    $result = $conn -> query($q);
+    if($result-> num_rows == 0)
+    {
+        return false;
+    }
+    else
+    {
+        $row = $result -> fetch_assoc();
+        return $row;
+    }
+}
 
 
 
