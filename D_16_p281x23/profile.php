@@ -11,7 +11,7 @@ require_once "connection.php";
 require_once "validation/validation.php";
 
 $id = $_SESSION["id"];
-$firstName = $lastName = $dob = $gender = "";
+$firstName = $lastName = $dob = $gender = $resume = "";
 $firstNameError = $lastNameError = $dobError = $genderError = "";
 
 //$exists; // ovako smo uveli promenljivu koja nema elemente
@@ -21,6 +21,7 @@ if ($profileRow !== false) {
     $lastName = $profileRow["last_name"];
     $gender = $profileRow["gender"];
     $dob = $profileRow["dob"];
+    $resume = $profileRow["bio"];
 }
 
 if (!isset($_SESSION["id"])) {
@@ -33,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastName = $connection->real_escape_string($_POST["last_name"]);
     $gender = $connection->real_escape_string($_POST["gender"]);
     $dob = $connection->real_escape_string($_POST["dob"]);
+    $resume = $connection->real_escape_string($_POST["resume"]);
 
     // Validacija polja
     $firstNameError = nameValidation($firstName);
@@ -47,10 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // if(profileExists($id,$connection) === false) ovo je vezano za $exists varijable ali promenili smo pomocu profilerow 
         if ($profileRow === false) {
             // $exists = false;
-            $q = "INSERT INTO `profiles` (`first_name`,`last_name`,`gender`,`dob`,`id_user`)
+            $q = "INSERT INTO `profiles` (`first_name`,`last_name`,`gender`,`dob`,`id_user`,`bio`)
             VALUES 
             (
-                '" . $firstName . "' , '" . $lastName . "', '" . $gender . "', '" . $dob . "', " . $id . "
+                '" . $firstName . "' , '" . $lastName . "', '" . $gender . "', '" . $dob . "', " . $id . ", '$resume'
             );";
         } else {
             // $exists = true;
@@ -58,7 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             SET `first_name` = '$firstName',
             `last_name` = '$lastName',
             `gender` = '$gender',
-            `dob` = '$dob'
+            `dob` = '$dob',
+            `bio` = '$resume'
             WHERE `id_user` = $id;         
             ";
         }
@@ -138,6 +141,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <fieldset>
                         <legend> Insert date of birth : </legend>
                         <input type="date" name="dob" id="dob" value="<?php echo $dob; ?>">
+                        <span class="error">*
+                            <?php echo $dobError; ?>
+                        </span>
+                        <br>
+
+                    </fieldset>
+                    <fieldset>
+                        <legend> Insert resume : </legend>
+                        <textarea name="resume" id="resume" maxlength="500" rows="5" ><?php echo $resume; ?></textarea>
                         <span class="error">*
                             <?php echo $dobError; ?>
                         </span>

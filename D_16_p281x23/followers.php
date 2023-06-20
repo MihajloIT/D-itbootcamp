@@ -29,12 +29,6 @@ while($row = $res2->fetch_array(MYSQLI_NUM))
     $niz2[] =$row[0];
 }
 
-
-
-
-
-
-
 ?>
 
 
@@ -59,8 +53,7 @@ while($row = $res2->fetch_array(MYSQLI_NUM))
             $q = "SELECT `u`.`id`, `u`.`username`,
             CONCAT(`p`.`first_name`, ' ' ,`p`.`last_name`) AS 'full_name'
             FROM `users` AS `u`
-            LEFT JOIN `profiles` AS `p`
-            ON `u`.`id` = `p`.`id_user` 
+            LEFT JOIN `profiles` AS `p` ON `u`.`id` = `p`.`id_user` 
             WHERE `u`.`id` != $id
             ORDER BY `full_name` ASC ";
             $result = $connection->query($q);

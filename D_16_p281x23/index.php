@@ -2,7 +2,7 @@
 session_start();
 require_once "connection.php";
 require_once "validation/validation.php";
-
+$id = $_SESSION["id"];
 $poruka = "";
 if (isset($_GET["p"]) && $_GET["p"] == "ok") {
     $poruka = "You have successfully registered, please log to continue";
@@ -19,23 +19,20 @@ function elementiKlase($poruka)
 $username = "";
 if (isset($_SESSION["username"])) {
     $username = $_SESSION["username"];
-         
+
     $id = $_SESSION['id']; // id logovanog korisnika
     $row = profileExists($id, $connection);
     // $q = "SELECT * FROM `profiles` WHERE `id_user` = $id "; umesto ovog umetnuli smo ovo iznad
     // $result = $connection -> query($q);
     $m = "";
     //if($result->num_rows == 0) nova if funkcija  ova dole
-    if($row === false)
-    {
+    if ($row === false) {
         $m = "Create";
-    }
-    else
-    {
+    } else {
         $m = "Edit";
         //$row = $result-> fetch_assoc();
         $username = $row["first_name"] . " " . $row["last_name"];
-    }  
+    }
 }
 
 
@@ -63,11 +60,15 @@ if (isset($_SESSION["username"])) {
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
         crossorigin="anonymous"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 
 <body>
 
-   <?php  require_once "header.php";  ?>
+    <?php require_once "header.php"; ?>
     <section>
         <div class="row">
             <div class="intro col-6">

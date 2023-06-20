@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         // print_r($connection);
         $hash = password_hash($password, PASSWORD_DEFAULT);
         print_r($hash);
-        $q = " INSERT INTO `users`  
+        $q = "INSERT INTO `users`  
         VALUES
         (  null,          
         '". $username ."',
