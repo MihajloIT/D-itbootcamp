@@ -8,6 +8,33 @@ if (empty($_SESSION['id'])) {
 }
 $id = $_SESSION['id'];
 
+
+
+// Odredimo koje korisnike prati logovan korisnik
+
+$upit1 = "SELECT `id_receiver` FROM `followers` WHERE `id_sender` = $id";
+$res1 = $connection-> query($upit1);
+$niz1 = [];
+while($row = $res1->fetch_array(MYSQLI_NUM))
+{
+    $niz1[] =$row[0];
+}
+
+// odrediti koji drugi korisnici prate logovanog korisnika
+$upit2 = "SELECT `id_sender` FROM `followers` WHERE `id_receiver` = $id";
+$res2 = $connection-> query($upit2);
+$niz2 = [];
+while($row = $res2->fetch_array(MYSQLI_NUM))
+{
+    $niz2[] =$row[0];
+}
+
+
+
+
+
+
+
 ?>
 
 
@@ -55,7 +82,25 @@ $id = $_SESSION['id'];
                     }
                     echo "</td><td>";
                     $friendId = $row['id'];
-                    echo "<a href='follow.php?friend_id=".$friendId."'>Follow</a>";
+                    // ovde cemo linkove za pracenje da korisnimo
+                    if(!in_array($friendId, $niz1))
+                    {
+                        if(!in_array($friendId,$niz2))
+                        {
+                            // ni ja pratim korisnika ni on mene
+                            $text = "Folow";
+                        }else
+                        {
+                            $text= "Folow back";
+                        }
+                        echo "<a href='follow.php?friend_id=".$friendId."'>$text</a>";
+                    }
+                    else
+                    {
+                        // Ovde ide unfollow deo
+                        echo "<a href='follow.php?friend_id=".$friendId."'>Unfollow</a>";
+                    }
+                    
                     echo "</td></tr>";
                 }
             }
