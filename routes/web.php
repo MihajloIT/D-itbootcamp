@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\PeopleController;
+//use Illuminate\Support\Facades\App; // na ovoj ruti hvatamo klasu App koja nam je bitna za jezike-- ipak smo i ovo zakomentarisali jer je pravio gresku u zadnjoj liniji koda
+use Illuminate\Support\Facades\Auth; // ovo sam ja sam dodao zbog klase vidim da je bila oznacena -> eli nije dodavala , vrv joj to nije trebalo
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/lang/{locale}',function (string $locale)
+{
+    //App::setLocale($locale);// ne moze samo ovo da se stavi jer to kratko traje,cim se predje na drugu stranicu nestaje, a mi imamo redirect back--kad smo zakomentarisali liniju 7 morali smo i ovo jer onda ovo nije radilo.Zapravo je ovo pozvano u middleware-u localization.php sessija 'locale'
+    session(['locale' => $locale]); // ovo je sesija koja se postavlja da korisnik moze da menja jezik ,a da ne utice na druge korisnike
+    return redirect()->back(); // povratak na predhodnu stranu, poslje ga daa uzme info i vrati na stranu sa koje je krenuo
+})->whereIn('locale', ['en','sr'])->name('lang'); // ovo je naziv rute po kom se u blade-u poziva
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,6 +38,10 @@ Route::middleware('auth')->group(function () { // grupisane rute , gde korisnik 
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Dole dodajemo nase rute koje su nam potrebne
+    //Prikaz svih podataka
+    Route::get('/genre', [GenreController::class, 'index'])->name('genre.index'); // zahtevamo da je korisnik logovan zato ovde pisemo
+    Route::get('/people', [PeopleController::class, 'index'])->name('people.index');
+
 });
 
 require __DIR__.'/auth.php';
