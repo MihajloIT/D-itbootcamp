@@ -27,7 +27,8 @@
                         <div class="mb-3 row">
                             <label for="name_sr" class="col-sm-2 col-form-label">{{__('Name SR')}}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control @error('name_sr') is-invalid @enderror" id="name_sr" name="name_sr" value="{{ old('name_sr', $genre->name_sr) }}>
+                                <input type="text" class="form-control @error('name_sr') is-invalid @enderror" id="name_sr" name="name_sr" 
+                                value="{{ old('name_sr', $genre->name_sr) }}">
                                 @error('name_sr')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

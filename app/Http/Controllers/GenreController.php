@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Genre;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class GenreController extends Controller
 {
@@ -45,8 +46,8 @@ class GenreController extends Controller
         //
         $request->validate
         ([
-            'name_en' => 'required|unique:genres,name_en',
-            'name_sr' => 'nullable|unique:genres,name_sr'
+            'name_en' => 'required|unique:genres,name_en|alpha',
+            'name_sr' => 'nullable|unique:genres,name_sr|alpha'
         ]); // nema upisano return back isl , jer automatski ako nije validno on ce sam izbaciti returnback false itd,a kod se ne izvrsava na dalje. Ako je validacija ispravna kod se nastavlja na Genre::creat...
         //Ovo 'name_en' i name_sr se poklapa sa inputovim NAME elementom
 
@@ -87,6 +88,20 @@ class GenreController extends Controller
     public function update(Request $request, Genre $genre)
     {
         //
+        $request->validate
+        ([
+            'name_en' => ['required', 
+            //'unique:genres,name_en' -- izmenili smo ovo ovim dole tekstom
+            Rule::unique('genres', 'name_en')->ignore($genre->id),
+            'alpha'],
+            'name_sr' => ['nullable',
+            Rule::unique('genres', 'name_sr')->ignore($genre->id),
+            'alpha']
+        ]);
+
+        $genre->update($request->all()); // ovo kad sam ubacio poceo je da cuva podatke u bazi koje su izmenjene
+
+        return redirect()->route('genre.index');
     }
 
     /**
