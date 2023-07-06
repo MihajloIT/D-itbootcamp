@@ -27,6 +27,7 @@ Route::get('/lang/{locale}',function (string $locale)
 Route::get('/', function () {
     return view('welcome');
 });
+ 
 
 Route::get('/dashboard', function () {
     return view('dashboard'); // treba da se redirektuje na home ne na dashboard kao sto je bilo, ima i neki 2. nacin je u app/providers/rootserviceproviders linija 20 
@@ -42,7 +43,20 @@ Route::middleware('auth')->group(function () { // grupisane rute , gde korisnik 
     Route::get('/genre', [GenreController::class, 'index'])->name('genre.index'); // zahtevamo da je korisnik logovan zato ovde pisemo
     Route::get('/people', [PeopleController::class, 'index'])->name('people.index');
 
-});
+// Ruta za kreiranje
+Route::get('/genre/create', [GenreController::class, 'create'])->name('genre.create');
+//Validacija podataka o upisu novog reda u tabelu, forma post metodom salje
+Route::post('/genre', [GenreController::class, 'store'])->name('genre.store');
+
+//Dodavanje putanja za Akciju
+Route::get('/genre/{genre}/edit', [GenreController::class, 'edit'])->name('genre.edit');
+
+//Izmena postojeceg podatka
+Route::put('/genre/{genre}', [GenreController::class, 'update'])->name('genre.update');
+
+
+
+}); 
 
 require __DIR__.'/auth.php';
 

@@ -19,9 +19,9 @@ class Localization
     public function handle(Request $request, Closure $next): Response
     {
         //if se stavlja kad korisnik prvi put dodje na sajt on nema podesenu sesiju dok ne izabere jezik
-        if(Session::exists('locale'))// ovo locale je zapravo kljuc iz web.php-a vezan za sesiju
+        if(Session::exists('locale'))// ovo locale je zapravo kljuc iz web.php-a vezan za sesiju. Proverava da li je korisnik kliknuo na sesiju EN ili SR
         {
-            App::setLocale(session('locale'));
+            App::setLocale(session('locale'));// session('locale') tako se stavlja locale za vrednost
         }
         return $next($request);
     }
