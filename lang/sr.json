@@ -12,5 +12,11 @@
     "Name EN" : "Ime EN",
     "Action" : "Akcija",
     "Settings" : "Administracija",
-    "Edit" : "Izmeni"
+    "Edit" : "Izmeni",
+    "Films" : "Filmovi",
+    "People" : "Ljudi",
+    "Name" : "Ime",
+    "Surname" : "Prezime",
+    "Birth" : "Rodjen",
+    "Person" : "Osoba"
 } 

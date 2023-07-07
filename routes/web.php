@@ -41,20 +41,28 @@ Route::middleware('auth')->group(function () { // grupisane rute , gde korisnik 
     // Dole dodajemo nase rute koje su nam potrebne
     //Prikaz svih podataka
     Route::get('/genre', [GenreController::class, 'index'])->name('genre.index'); // zahtevamo da je korisnik logovan zato ovde pisemo
+   
+
+    // Ruta za kreiranje
+    Route::get('/genre/create', [GenreController::class, 'create'])->name('genre.create');
+    //Validacija podataka o upisu novog reda u tabelu, forma post metodom salje
+    Route::post('/genre', [GenreController::class, 'store'])->name('genre.store');
+
+    //Dodavanje putanja za Akciju
+    Route::get('/genre/{genre}/edit', [GenreController::class, 'edit'])->name('genre.edit');
+
+    //Izmena postojeceg podatka
+    Route::put('/genre/{genre}', [GenreController::class, 'update'])->name('genre.update');
+
     Route::get('/people', [PeopleController::class, 'index'])->name('people.index');
 
-// Ruta za kreiranje
-Route::get('/genre/create', [GenreController::class, 'create'])->name('genre.create');
-//Validacija podataka o upisu novog reda u tabelu, forma post metodom salje
-Route::post('/genre', [GenreController::class, 'store'])->name('genre.store');
+    Route::get('/people/create', [PeopleController::class, 'create'])->name('people.create');
 
-//Dodavanje putanja za Akciju
-Route::get('/genre/{genre}/edit', [GenreController::class, 'edit'])->name('genre.edit');
+    Route::post('/people' , [PeopleController::class, 'store'])->name('people.store');
 
-//Izmena postojeceg podatka
-Route::put('/genre/{genre}', [GenreController::class, 'update'])->name('genre.update');
+    Route::get('/people/{people}/edit' , [PeopleController::class, 'edit'])->name('people.edit');
 
-
+    Route::put('/people/{people}', [PeopleController::class, 'update'])->name('people.update');
 
 }); 
 
