@@ -18,5 +18,14 @@
     "Name" : "Ime",
     "Surname" : "Prezime",
     "Birth" : "Rodjen",
-    "Person" : "Osoba"
+    "Person" : "Osoba",
+    "Delete" : "Obrisi",
+    "You have added successfully" : "Uspešno ste dodali",
+    "You have deleted successfully" : "Uspešno obrisano",
+    "You have edited successfully" : "Uspešno promenjeno",
+    "Showing" : "Prikaz",
+    "to" : "-",
+    "of" : "od",
+    "results" : "rezultata",
+    "No." : "Rb."
 } 

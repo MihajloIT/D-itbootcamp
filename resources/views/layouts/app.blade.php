@@ -47,29 +47,15 @@
                             @endif
                         </li>
                     </ul>
-
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a id="navbarAdministracija" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __("Settings") }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('genre.index') }}">
-                                    {{ __('Genres') }}
-                                </a>
-
-                            </div>
-                        </li>
-                    </ul>
+                    @auth
                     <nav class="navbar navbar ">
                         <form class="container-fluid justify-content-start">
+                            <a href="{{ route('genre.index') }}" class="btn btn-outline-success me-2" type="button">{{ __('Genres')}}</a>
                             <a class="btn btn-outline-success me-2" type="button">{{ __('Films')}}</a>
                             <a href="{{ route('people.index')}}" class="btn btn-outline-success me-2" type="button">{{ __('People')}}</a>
                         </form>
                     </nav>
-
-
+                    @endauth
 
 
                     <!-- Right Side Of Navbar -->
@@ -111,7 +97,19 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        @if(session('alertMsg'))
+                        <div class="alert alert-{{session('alertType')}} alert-dismissible fade show" role="alert">
+                            {{session('alertMsg')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 </body>

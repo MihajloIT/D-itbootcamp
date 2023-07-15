@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\App;
 
 class GenreController extends Controller
 {
@@ -21,7 +22,22 @@ class GenreController extends Controller
                 // $aModel -> name_sr;
 
         //Dobavljanje sve podatke iz tabele
-        $data = Genre::all();
+
+        $locale = App::currentLocale(); // ili en ili sr
+        // en -> sort po name_en
+        // sr -> sort po name_sr
+
+        if($locale == 'en')
+        {
+            $data = Genre::orderBy('name_en')->paginate(5);
+        }elseif($locale == 'sr')
+        {
+            $data = Genre::orderBy('name_sr')->paginate(5);
+        }else
+        {
+        //$data = Genre::all();
+        $data = Genre::paginate(6); // ovo smo izmenili
+        }
 
         // Sad zovemo view kojom prosledjujemo info
         return view('genre.index', ['data' => $data]);
@@ -61,6 +77,11 @@ class GenreController extends Controller
         // Ove dve gore opcije su teze od ove dole kad je u pitanju pozivanje svih kolona iz tabele
       
         Genre::create($request->all()); 
+
+        $request->session()->flash('alertType', 'success');
+        $request->session()->flash('alertMsg', 'You have added successfully');
+
+
         return redirect()->route('genre.index');
     }
 
@@ -79,6 +100,7 @@ class GenreController extends Controller
     public function edit(Genre $genre)
     {
         // koristi compact da bi izvukao fajlove kojima ce posle ispuniti formu za edit
+
         return view('genre.edit', compact('genre'));
     }
 
@@ -101,6 +123,9 @@ class GenreController extends Controller
 
         $genre->update($request->all()); // ovo kad sam ubacio poceo je da cuva podatke u bazi koje su izmenjene
 
+        $request->session()->flash('alertType', 'success');
+        $request->session()->flash('alertMsg', 'Successfuly edited');
+
         return redirect()->route('genre.index');
     }
 
@@ -110,5 +135,11 @@ class GenreController extends Controller
     public function destroy(Genre $genre)
     {
         //
+        $genre -> delete();
+
+        session()->flash('alertType', 'success');
+        session()->flash('alertMsg', 'Successfuly deleted');
+
+        return redirect()->route('genre.index'); // nakon brisanja redirektujemo korisnika na stranicu
     }
 }

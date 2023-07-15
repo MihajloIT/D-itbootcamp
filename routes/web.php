@@ -64,6 +64,13 @@ Route::middleware('auth')->group(function () { // grupisane rute , gde korisnik 
 
     Route::put('/people/{people}', [PeopleController::class, 'update'])->name('people.update');
 
+    //brisanje podatka Genre
+    Route::delete('/genre/{genre}', [GenreController::class, 'destroy'])->name('genre.destroy');
+
+    //brisanje podatka People
+    Route::delete('/people/{people}', [PeopleController::class, 'destroy'])->name('people.destroy');
+
+
 }); 
 
 require __DIR__.'/auth.php';

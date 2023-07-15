@@ -14,9 +14,11 @@ class PeopleController extends Controller
     public function index()
     {
         //
-        $date = People::all();
+        
+        // $date = People::all();
+        $data = People::orderBy('surname')->paginate(2);
 
-        return view('people.index', ['data' => $date]);
+        return view('people.index', ['data' => $data]);
     }
 
     /**
@@ -43,6 +45,10 @@ class PeopleController extends Controller
         ]);
       
         People::create($request->all()); 
+
+        $request->session()->flash('alertType', 'success');
+        $request->session()->flash('alertMsg', 'You have added successfully');
+
         return redirect()->route('people.index');
     }
 
@@ -82,6 +88,9 @@ class PeopleController extends Controller
 
         $people->update($request->all()); // ovo kad sam ubacio poceo je da cuva podatke u bazi koje su izmenjene
 
+        $request->session()->flash('alertType', 'success');
+        $request->session()->flash('alertMsg', 'You have edited successfully');
+
         return redirect()->route('people.index');
     }
 
@@ -91,5 +100,11 @@ class PeopleController extends Controller
     public function destroy(People $people)
     {
         //
+        $people-> delete();
+
+        session()->flash('alertType', 'success');
+        session()->flash('alertMsg', 'You have deleted successfully');
+
+        return redirect()->route('people.index');
     }
 }
